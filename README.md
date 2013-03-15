@@ -1,2 +1,2 @@
-jzy3d-tools-convexhull
-======================
+A clone of https://code.google.com/p/convexhull/
+
