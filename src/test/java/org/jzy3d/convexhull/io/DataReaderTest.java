@@ -2,6 +2,7 @@ package org.jzy3d.convexhull.io;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -10,7 +11,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.jzy3d.convexhull.Fixtures;
 import org.jzy3d.convexhull.algorithms.Point2f;
-import org.jzy3d.convexhull.utils.List;
 
 /**
  *
@@ -62,11 +62,11 @@ public class DataReaderTest {
             assertEquals(6149, lista.size());
 
             for (int i = 0; i < 4; i++) {
-                System.out.println("Piste " + i + " = " + lista.search(i));
+                System.out.println("Piste " + i + " = " + lista.get(i));
             }
 
             
-            Point2f p = lista.search(lista.size() - 1);
+            Point2f p = lista.get(lista.size() - 1);
             System.out.println("The last point is " + p);
             double delta = 0.1e-5;
             assertEquals(0.81, p.getX(), delta);
@@ -91,11 +91,11 @@ public class DataReaderTest {
             assertEquals(32000, lista.size());
 
             for (int i = 0; i < 4; i++) {
-                System.out.println("point " + i + " = " + lista.search(i));
+                System.out.println("point " + i + " = " + lista.get(i));
             }
 
             
-            Point2f p = lista.search(lista.size() - 1);
+            Point2f p = lista.get(lista.size() - 1);
             System.out.println("The last point is " + p);
             double delta = 0.1e-5;
             assertEquals(-0.0118, p.getX(), delta);

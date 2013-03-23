@@ -4,6 +4,7 @@ package org.jzy3d.convexhull.gui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.io.File;
+import java.util.List;
 import javax.swing.JFileChooser;
 import org.jzy3d.convexhull.algorithms.Converter;
 import org.jzy3d.convexhull.algorithms.Point2f;
@@ -12,7 +13,6 @@ import org.jzy3d.convexhull.GrahamScan;
 import org.jzy3d.convexhull.JarvisMarch;
 import org.jzy3d.convexhull.io.DataReader;
 import org.jzy3d.convexhull.utils.LinkedList;
-import org.jzy3d.convexhull.utils.List;
 import org.jzy3d.convexhull.utils.Stack;
 
 /**
@@ -348,7 +348,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
 			
 			// Lisää listaan
 			c = new Converter(canvas.getWidth(), canvas.getHeight(), 10, 10);
-            lista.insert(c.to(new Point2f(xx, yy)));
+            lista.add(c.to(new Point2f(xx, yy)));
         }
 
         ptsLabel.setText("" + lista.size());
@@ -367,7 +367,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
 
 		// Lisää listaan.
         Converter c = new Converter(canvas.getWidth(), canvas.getHeight(), 10, 10);
-        lista.insert(c.to(new Point2f(xx, yy)));
+        lista.add(c.to(new Point2f(xx, yy)));
 
 		// Näytä gui:ssa listan koko.
         ptsLabel.setText("" + lista.size());

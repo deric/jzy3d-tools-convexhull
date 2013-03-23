@@ -2,6 +2,7 @@ package org.jzy3d.convexhull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -12,7 +13,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.io.DataReader;
-import org.jzy3d.convexhull.utils.List;
 import org.jzy3d.convexhull.utils.Stack;
 
 /**

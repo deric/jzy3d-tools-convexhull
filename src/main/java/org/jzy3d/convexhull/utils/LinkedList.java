@@ -1,5 +1,7 @@
 package org.jzy3d.convexhull.utils;
 
+import java.util.List;
+
 /**
  * Linkitetty lista.
  *
@@ -72,7 +74,7 @@ public class LinkedList<T> implements List<T> {
 	 * @.pre { table.length == this.size() }
 	 * @.post { FORALL( i : table[i] == this.search( i ) ) }
        */
-    	public T[] toArray(T[] table) {		
+    /*	public T[] toArray(T[] table) {		
 		assert table.length == this.size();
 
         	Node<T> node = this.head;
@@ -83,5 +85,5 @@ public class LinkedList<T> implements List<T> {
         	}
 	
 		return table;
-    	}
+    	}*/
 }

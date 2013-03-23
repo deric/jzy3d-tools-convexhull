@@ -7,9 +7,10 @@ import java.io.Reader;
 import java.io.StreamTokenizer;
 
 import java.io.File;
+import java.util.List;
 import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.utils.LinkedList;
-import org.jzy3d.convexhull.utils.List;
+
 
 /**
  * Hint: The buffering makes the program more than 20 times faster.
@@ -67,7 +68,7 @@ public class DataReader {
                 }
                 if (flag == true) {
                     y = stok.nval;
-                    listP.insert(new Point2f(x, y));
+                    listP.add(new Point2f(x, y));
                 }
                 flag = !flag;
             }
@@ -76,7 +77,7 @@ public class DataReader {
             if (stok.ttype == StreamTokenizer.TT_WORD) {
                 //System.out.println("Avain: " + stok.sval);
                 keys += 1;
-                listS.insert(stok.sval);
+                listS.add(stok.sval);
             }
 
             stok.nextToken();
