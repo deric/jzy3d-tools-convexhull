@@ -1,12 +1,5 @@
 package org.jzy3d.convexhull;
 
-import java.io.IOException;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import org.jzy3d.convexhull.algorithms.Point2f;
 
 /**
@@ -44,10 +37,10 @@ public class PerformanceTest {
         System.out.println("pisteet, aika (ms)");
 
         System.out.print("jarvis ==== ");
-        runTest(new JarvisMarch(), 300);
+        runTest(new JarvisMarch(), 250);
 
         System.out.print("graham ==== ");
-        runTest(new GrahamScan(), 300);
+        runTest(new GrahamScan(), 250);
     }
 
     /**
@@ -59,7 +52,7 @@ public class PerformanceTest {
         int start = 200;
         int runs = tuhannet - start;
         for (int i = start; i <= tuhannet; i++) {
-            int pts = 1000 * i;        
+            int pts = 100 * i;        
             Point2f[] p = generate(pts);
 
             long t1 = System.currentTimeMillis();
