@@ -1,4 +1,4 @@
-package org.jzy3d.algorithms;
+package org.jzy3d.convexhull.algorithms;
 
 /**
  *

@@ -1,6 +1,7 @@
-package org.jzy3d.algorithms;
+package org.jzy3d.convexhull.algorithms;
 
-import utils.IComparator;
+import org.jzy3d.convexhull.utils.IComparator;
+
 
 /**
  * @author Jukka Moisio, Teemu Linkosaari

@@ -1,4 +1,4 @@
-package org.jzy3d.io;
+package org.jzy3d.convexhull.io;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,9 +8,9 @@ import java.io.StreamTokenizer;
 
 
 import java.io.File;
-import org.jzy3d.algorithms.Point2f;
-import org.jzy3d.utils.LinkedList;
-import org.jzy3d.utils.List;
+import org.jzy3d.convexhull.algorithms.Point2f;
+import org.jzy3d.convexhull.utils.LinkedList;
+import org.jzy3d.convexhull.utils.List;
 
 
 /**

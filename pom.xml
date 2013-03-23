@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-    <artifactId>clueminer-parent</artifactId>
-    <groupId>org.clueminer</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-
     <groupId>org.jzy3d</groupId>
     <artifactId>jzy3d-convexhull</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -40,6 +34,12 @@
             <artifactId>org-netbeans-api-annotations-common</artifactId>
             <version>RELEASE73</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -51,11 +51,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publicPackages>
-                        <publicPackage>org.jzy3d.algorithms</publicPackage>
-                        <publicPackage>org.jzy3d.convexhull</publicPackage>
-                        <publicPackage>org.jzy3d.convexhull.gui</publicPackage>
-                        <publicPackage>org.jzy3d.io</publicPackage>
-                        <publicPackage>org.jzy3d.utils</publicPackage>
+                        <publicPackage>org.jzy3d.convexhull.*</publicPackage>
                     </publicPackages>
                 </configuration>
             </plugin>

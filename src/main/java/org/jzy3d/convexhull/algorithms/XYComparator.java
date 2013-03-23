@@ -1,6 +1,6 @@
-package org.jzy3d.algorithms;
+package org.jzy3d.convexhull.algorithms;
 
-import org.jzy3d.utils.IComparator;
+import org.jzy3d.convexhull.utils.IComparator;
 
 
 

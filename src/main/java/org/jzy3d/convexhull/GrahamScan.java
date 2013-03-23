@@ -1,10 +1,10 @@
 package org.jzy3d.convexhull;
 
-import org.jzy3d.algorithms.Point2f;
-import org.jzy3d.algorithms.RadialComparator;
-import org.jzy3d.utils.LinkedStack;
-import org.jzy3d.utils.QuickSort;
-import org.jzy3d.utils.Stack;
+import org.jzy3d.convexhull.algorithms.Point2f;
+import org.jzy3d.convexhull.algorithms.RadialComparator;
+import org.jzy3d.convexhull.utils.LinkedStack;
+import org.jzy3d.convexhull.utils.QuickSort;
+import org.jzy3d.convexhull.utils.Stack;
 
 
 

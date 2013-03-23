@@ -5,15 +5,15 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.io.File;
 import javax.swing.JFileChooser;
-import org.jzy3d.algorithms.Converter;
-import org.jzy3d.algorithms.Point2f;
+import org.jzy3d.convexhull.algorithms.Converter;
+import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.ConvexHullFunction;
 import org.jzy3d.convexhull.GrahamScan;
 import org.jzy3d.convexhull.JarvisMarch;
-import org.jzy3d.io.DataReader;
-import org.jzy3d.utils.LinkedList;
-import org.jzy3d.utils.List;
-import org.jzy3d.utils.Stack;
+import org.jzy3d.convexhull.io.DataReader;
+import org.jzy3d.convexhull.utils.LinkedList;
+import org.jzy3d.convexhull.utils.List;
+import org.jzy3d.convexhull.utils.Stack;
 
 /**
  * Luokka on sisäisesti C-kielimäinen:
