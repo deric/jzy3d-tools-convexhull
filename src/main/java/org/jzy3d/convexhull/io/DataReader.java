@@ -7,9 +7,9 @@ import java.io.Reader;
 import java.io.StreamTokenizer;
 
 import java.io.File;
+import java.util.LinkedList;
 import java.util.List;
 import org.jzy3d.convexhull.algorithms.Point2f;
-import org.jzy3d.convexhull.utils.LinkedList;
 
 
 /**
