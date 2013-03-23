@@ -1,5 +1,6 @@
 package org.jzy3d.convexhull;
 
+import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.Deque;
@@ -12,7 +13,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.io.DataReader;
 
 /**
@@ -55,13 +55,13 @@ public class GrahamScanTest {
             ConvexHullFunction f2 = new JarvisMarch();
             
             File file = fixtures.data2();
-            List<Point2f> lista = DataReader.readData(file);
+            List<Point2D> lista = DataReader.readData(file);
 
-            Point2f[] data = new Point2f[lista.size()];
+            Point2D[] data = new Point2D[lista.size()];
             data = lista.toArray(data);
 
-            Deque<Point2f> pino = f.getConvexHull(data);
-            Deque<Point2f> pino2 = f2.getConvexHull(data);
+            Deque<Point2D> pino = f.getConvexHull(data);
+            Deque<Point2D> pino2 = f2.getConvexHull(data);
 
             System.out.println("Size: " + pino.size());
             //assertEquals(170, pino.size());

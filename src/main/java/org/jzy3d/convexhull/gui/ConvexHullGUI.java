@@ -2,14 +2,13 @@ package org.jzy3d.convexhull.gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.geom.Point2D;
 import java.io.File;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 import javax.swing.JFileChooser;
 import org.jzy3d.convexhull.algorithms.Converter;
-import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.ConvexHullFunction;
 import org.jzy3d.convexhull.GrahamScan;
 import org.jzy3d.convexhull.JarvisMarch;
@@ -58,7 +57,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
     final JFileChooser fileChooser = new JFileChooser();
     File file;
     // Lisatyt muuttujat
-    List<Point2f> lista = new LinkedList<Point2f>();
+    List<Point2D> lista = new LinkedList<Point2D>();
     int points = 0;
 
     /**
@@ -346,7 +345,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
 
             // Lisää listaan
             c = new Converter(canvas.getWidth(), canvas.getHeight(), 10, 10);
-            lista.add(c.to(new Point2f(xx, yy)));
+            lista.add(c.to(new Point2D.Double(xx, yy)));
         }
 
         ptsLabel.setText("" + lista.size());
@@ -365,7 +364,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
 
         // Lisää listaan.
         Converter c = new Converter(canvas.getWidth(), canvas.getHeight(), 10, 10);
-        lista.add(c.to(new Point2f(xx, yy)));
+        lista.add(c.to(new Point2D.Double(xx, yy)));
 
         // Näytä gui:ssa listan koko.
         ptsLabel.setText("" + lista.size());
@@ -374,7 +373,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
 
         // Tyhjennä lista alustamalla se uudelleen.
-        lista = new LinkedList<Point2f>();
+        lista = new LinkedList<Point2D>();
         ptsLabel.setText("" + lista.size());
 
         int w = (int) canvas.getBounds().getWidth();
@@ -398,7 +397,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
         g.setColor(Color.black);
 
         // Luo taulukko.
-        Point2f[] table = new Point2f[lista.size()];
+        Point2D[] table = new Point2D[lista.size()];
         table = lista.toArray(table);
 
         // Valitse peitteen hakualgoritmi.
@@ -416,7 +415,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
 
         System.out.println("Input size: " + table.length);
         long start = System.currentTimeMillis();
-        Deque<Point2f> pino = f.getConvexHull(table);
+        Deque<Point2D> pino = f.getConvexHull(table);
         long end = System.currentTimeMillis();
         System.out.println("Operation time (ms): " + (end - start));
         System.out.println("Output size: " + pino.size());
@@ -424,8 +423,8 @@ public class ConvexHullGUI extends javax.swing.JFrame {
         Converter c = new Converter(canvas.getWidth(), canvas.getHeight(), 10, 10);
         g.setColor(Color.red);
 
-        Point2f prev = c.from(pino.pop());
-        Point2f first = prev;
+        Point2D prev = c.from(pino.pop());
+        Point2D first = prev;
 
         // Piirretäänkö viivat?
         boolean lines = false;
@@ -437,7 +436,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
 
         // Piirrä pisteet ja mahdollisesti viivat.
         while (!pino.isEmpty()) {
-            Point2f next = c.from(pino.pop());
+            Point2D next = c.from(pino.pop());
             g.drawOval((int) prev.getX() - 4, (int) prev.getY() - 4, 8, 8);
             if (lines) {
                 g.drawLine((int) prev.getX(), (int) prev.getY(),
@@ -466,7 +465,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
         if (JFileChooser.APPROVE_OPTION == paluu) {
             file = fileChooser.getSelectedFile();
             try {
-                List<Point2f> lista = DataReader.readData(file);
+                List<Point2D> lista = DataReader.readData(file);
                 System.out.println("Loaded: " + file);
                 System.out.println("Points: " + lista.size());
                 System.out.println("Toteutus viela kesken!");

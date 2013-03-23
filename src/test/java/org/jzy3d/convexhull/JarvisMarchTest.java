@@ -1,5 +1,6 @@
 package org.jzy3d.convexhull;
 
+import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.Deque;
@@ -10,7 +11,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.io.DataReader;
 
 /**
@@ -48,7 +48,7 @@ public class JarvisMarchTest {
     public void testGetConvexHull() {
         ConvexHullFunction f = new JarvisMarch();
 
-        List<Point2f> lista;
+        List<Point2D> lista;
 
         try {
             File file = fixtures.data1();
@@ -58,10 +58,10 @@ public class JarvisMarchTest {
             throw new AssertionError("\nReading data2D2.txt failed!");
         }
 
-        Point2f[] data = new Point2f[lista.size()];
+        Point2D[] data = new Point2D[lista.size()];
         data = lista.toArray(data);
 
-        Deque<Point2f> pino = f.getConvexHull(data);
+        Deque<Point2D> pino = f.getConvexHull(data);
         assertEquals(6149, lista.size());
         System.out.println("\nListan koko: " + lista.size());
         assertEquals(13, pino.size());
@@ -72,28 +72,28 @@ public class JarvisMarchTest {
     public void testGetConvexHull2() {
         ConvexHullFunction f = new JarvisMarch();
 
-        Point2f[] data = new Point2f[18];
+        Point2D[] data = new Point2D[18];
         int i = 0;
-        data[i++] = new Point2f(0, 0);//0
-        data[i++] = new Point2f(1, -3);
-        data[i++] = new Point2f(-3, -2);
-        data[i++] = new Point2f(-1, -2.3);
-        data[i++] = new Point2f(2, -1);
-        data[i++] = new Point2f(4, 1);//5
-        data[i++] = new Point2f(3, 2);
-        data[i++] = new Point2f(3, 4);
-        data[i++] = new Point2f(2, 6);
-        data[i++] = new Point2f(1, 5);
-        data[i++] = new Point2f(-2, 5);//10
-        data[i++] = new Point2f(-4, 3);
-        data[i++] = new Point2f(-5, 1);
-        data[i++] = new Point2f(-4, 0);
-        data[i++] = new Point2f(-1, -1);
-        data[i++] = new Point2f(-1, 3);//15
-        data[i++] = new Point2f(-3, 2);
-        data[i++] = new Point2f(-2, 4);
+        data[i++] = new Point2D.Double(0, 0);//0
+        data[i++] = new Point2D.Double(1, -3);
+        data[i++] = new Point2D.Double(-3, -2);
+        data[i++] = new Point2D.Double(-1, -2.3);
+        data[i++] = new Point2D.Double(2, -1);
+        data[i++] = new Point2D.Double(4, 1);//5
+        data[i++] = new Point2D.Double(3, 2);
+        data[i++] = new Point2D.Double(3, 4);
+        data[i++] = new Point2D.Double(2, 6);
+        data[i++] = new Point2D.Double(1, 5);
+        data[i++] = new Point2D.Double(-2, 5);//10
+        data[i++] = new Point2D.Double(-4, 3);
+        data[i++] = new Point2D.Double(-5, 1);
+        data[i++] = new Point2D.Double(-4, 0);
+        data[i++] = new Point2D.Double(-1, -1);
+        data[i++] = new Point2D.Double(-1, 3);//15
+        data[i++] = new Point2D.Double(-3, 2);
+        data[i++] = new Point2D.Double(-2, 4);
 
-        Deque<Point2f> pino = f.getConvexHull(data);
+        Deque<Point2D> pino = f.getConvexHull(data);
 
         System.out.println("\nList size: " + data.length);
          assertEquals(18, data.length);

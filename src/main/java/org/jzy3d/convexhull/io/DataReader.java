@@ -1,5 +1,6 @@
 package org.jzy3d.convexhull.io;
 
+import java.awt.geom.Point2D;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,8 +10,6 @@ import java.io.StreamTokenizer;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-import org.jzy3d.convexhull.algorithms.Point2f;
-
 
 /**
  * Hint: The buffering makes the program more than 20 times faster.
@@ -25,7 +24,7 @@ public class DataReader {
      * @return
      * @throws java.io.IOException
      */
-    public static List<Point2f> readData(String filename) throws IOException {
+    public static List<Point2D> readData(String filename) throws IOException {
         Reader r = new BufferedReader(new FileReader(filename));
         return readData(r);
     }
@@ -36,13 +35,13 @@ public class DataReader {
      * @return
      * @throws java.io.IOException
      */
-    public static List<Point2f> readData(File file) throws IOException {
+    public static List<Point2D> readData(File file) throws IOException {
         Reader r = new BufferedReader(new FileReader(file));
         return readData(r);
     }
 
     // PRIVATE 
-    private static List<Point2f> readData(Reader r) throws IOException {
+    private static List<Point2D> readData(Reader r) throws IOException {
 
         StreamTokenizer stok = new StreamTokenizer(r);
         stok.resetSyntax();
@@ -55,7 +54,7 @@ public class DataReader {
         boolean flag = false;
         double x = 0, y;
 
-        List<Point2f> listP = new LinkedList<Point2f>();
+        List<Point2D> listP = new LinkedList<Point2D>();
         List<String> listS = new LinkedList<String>();
 
         // Lue, kunnes tiedosto loppuu.
@@ -68,7 +67,7 @@ public class DataReader {
                 }
                 if (flag == true) {
                     y = stok.nval;
-                    listP.add(new Point2f(x, y));
+                    listP.add(new Point2D.Double(x, y));
                 }
                 flag = !flag;
             }

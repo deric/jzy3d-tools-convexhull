@@ -1,6 +1,7 @@
 package org.jzy3d.convexhull;
 
-import org.jzy3d.convexhull.algorithms.Point2f;
+import java.awt.geom.Point2D;
+
 
 /**
  *
@@ -11,17 +12,17 @@ public class PerformanceTest {
     /**
      * Luo n kpl pisteitä satunnaisesti.
      */
-    private static Point2f[] generate(int n) {
+    private static Point2D[] generate(int n) {
         assert n >= 0;
 
-        Point2f[] t = new Point2f[n];
+        Point2D[] t = new Point2D[n];
 
         java.util.Random gen = new java.util.Random();
 
         for (int i = 0; i < n; i++) {
             double x = 500 - 1000 * gen.nextDouble();
             double y = 500 - 1000 * gen.nextDouble();
-            t[i] = new Point2f(x, y);
+            t[i] = new Point2D.Double(x, y);
 
             assert t[i] != null;
         }
@@ -53,7 +54,7 @@ public class PerformanceTest {
         int runs = tuhannet - start;
         for (int i = start; i <= tuhannet; i++) {
             int pts = 100 * i;        
-            Point2f[] p = generate(pts);
+            Point2D[] p = generate(pts);
 
             long t1 = System.currentTimeMillis();
             f.getConvexHull(p);

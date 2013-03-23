@@ -1,8 +1,9 @@
 package org.jzy3d.convexhull.algorithms;
 
+import java.awt.geom.Point2D;
 import org.jzy3d.convexhull.utils.IComparator;
 
-public class XYComparator implements IComparator<Point2f> {
+public class XYComparator implements IComparator<Point2D> {
 
     private double epsilon;
 
@@ -18,7 +19,7 @@ public class XYComparator implements IComparator<Point2f> {
      *
      */
     @Override
-    public int compare(Point2f a, Point2f b) {
+    public int compare(Point2D a, Point2D b) {
 
         assert a != null;
         assert b != null;

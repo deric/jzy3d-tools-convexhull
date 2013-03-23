@@ -1,5 +1,6 @@
 package org.jzy3d.convexhull.algorithms;
 
+import java.awt.geom.Point2D;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,67 +44,66 @@ public class ConverterTest {
     public void testTo() {
         System.out.println("TO");
 
-        Point2f[] p = new Point2f[10];
-        boolean ehto;
+        Point2D[] p = new Point2D[10];
         int i = 0, x, y;
 
-        p[i] = c.to(new Point2f(150, 100));
+        p[i] = c.to(new Point2D.Double(150, 100));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(0, x);
         assertEquals(0, y);
         i++;
 
-        p[i] = c.to(new Point2f(300, 100));
+        p[i] = c.to(new Point2D.Double(300, 100));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(10, x);
         assertEquals(0, y);        
         i++;
 
-        p[i] = c.to(new Point2f(0, 100));
+        p[i] = c.to(new Point2D.Double(0, 100));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(-10, x);
         assertEquals(0, y);        
         i++;
 
-        p[i] = c.to(new Point2f(0, 0));
+        p[i] = c.to(new Point2D.Double(0, 0));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(-10, x);
         assertEquals(10, y);        
         i++;
 
-        p[i] = c.to(new Point2f(150, 200));
+        p[i] = c.to(new Point2D.Double(150, 200));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(0, x);
         assertEquals(-10, y);        
         i++;
 
-        p[i] = c.to(new Point2f(225, 50));
+        p[i] = c.to(new Point2D.Double(225, 50));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(5, x);
         assertEquals(5, y);        
         i++;
 
-        p[i] = c.to(new Point2f(225, 150));
+        p[i] = c.to(new Point2D.Double(225, 150));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(5, x);
         assertEquals(-5, y);        
         i++;
 
-        p[i] = c.to(new Point2f(300, 200));
+        p[i] = c.to(new Point2D.Double(300, 200));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(10, x);
         assertEquals(-10, y);        
         i++;
 
-        p[i] = c.to(new Point2f(0, 0));
+        p[i] = c.to(new Point2D.Double(0, 0));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(-10, x);
@@ -118,66 +118,66 @@ public class ConverterTest {
     public void testFrom() {
         System.out.println("FROM");
 
-        Point2f[] p = new Point2f[10];
+        Point2D[] p = new Point2D[10];
         int i = 0, x, y;
 
-        p[i] = c.from(new Point2f(0, 0));
+        p[i] = c.from(new Point2D.Double(0, 0));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(150, x);
         assertEquals(100, y);
         i++;
 
-        p[i] = c.from(new Point2f(10, 0));
+        p[i] = c.from(new Point2D.Double(10, 0));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(300, x);
         assertEquals(100, y);
         i++;
 
-        p[i] = c.from(new Point2f(-10, 0));
+        p[i] = c.from(new Point2D.Double(-10, 0));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(0, x);
         assertEquals(100, y);
         i++;
 
-        p[i] = c.from(new Point2f(0, 10));
+        p[i] = c.from(new Point2D.Double(0, 10));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(150, x);
         assertEquals(0, y);
         i++;
 
-        p[i] = c.from(new Point2f(0, -10));
+        p[i] = c.from(new Point2D.Double(0, -10));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(150, x);
         assertEquals(200, y);
         i++;
 
-        p[i] = c.from(new Point2f(5, 5));
+        p[i] = c.from(new Point2D.Double(5, 5));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(225, x);
         assertEquals(50, y);
         i++;
 
-        p[i] = c.from(new Point2f(5, -5));
+        p[i] = c.from(new Point2D.Double(5, -5));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(225, x);
         assertEquals(150, y);
         i++;
 
-        p[i] = c.from(new Point2f(10, -10));
+        p[i] = c.from(new Point2D.Double(10, -10));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(300, x);
         assertEquals(200, y);
         i++;
 
-        p[i] = c.from(new Point2f(-10, 10));
+        p[i] = c.from(new Point2D.Double(-10, 10));
         x = (int) p[i].getX();
         y = (int) p[i].getY();
         assertEquals(0, x);

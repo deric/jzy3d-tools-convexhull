@@ -1,5 +1,6 @@
 package org.jzy3d.convexhull.io;
 
+import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -10,7 +11,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.jzy3d.convexhull.Fixtures;
-import org.jzy3d.convexhull.algorithms.Point2f;
 
 /**
  *
@@ -56,7 +56,7 @@ public class DataReaderTest {
         File file = fixtures.data1();
 
         try {
-            List<Point2f> lista = DataReader.readData(file);
+            List<Point2D> lista = DataReader.readData(file);
 
             System.out.println("The number of keys is " + lista.size());
             assertEquals(6149, lista.size());
@@ -66,7 +66,7 @@ public class DataReaderTest {
             }
 
             
-            Point2f p = lista.get(lista.size() - 1);
+            Point2D p = lista.get(lista.size() - 1);
             System.out.println("The last point is " + p);
             double delta = 0.1e-5;
             assertEquals(0.81, p.getX(), delta);
@@ -85,7 +85,7 @@ public class DataReaderTest {
         File file = fixtures.data2();
 
         try {
-            List<Point2f> lista = DataReader.readData(file);
+            List<Point2D> lista = DataReader.readData(file);
 
             System.out.println("The number of keys is " + lista.size());
             assertEquals(32000, lista.size());
@@ -93,9 +93,8 @@ public class DataReaderTest {
             for (int i = 0; i < 4; i++) {
                 System.out.println("point " + i + " = " + lista.get(i));
             }
-
             
-            Point2f p = lista.get(lista.size() - 1);
+            Point2D p = lista.get(lista.size() - 1);
             System.out.println("The last point is " + p);
             double delta = 0.1e-5;
             assertEquals(-0.0118, p.getX(), delta);

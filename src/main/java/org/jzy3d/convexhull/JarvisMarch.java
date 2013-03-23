@@ -1,9 +1,8 @@
 package org.jzy3d.convexhull;
 
+import java.awt.geom.Point2D;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
-import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.algorithms.XYComparator;
 import org.jzy3d.convexhull.utils.QuickSort;
 
@@ -23,7 +22,7 @@ public class JarvisMarch implements ConvexHullFunction {
     /**
      * Laskee kolmion p1p2p3 alan
      */
-    private double crossProduct(Point2f p1, Point2f p2, Point2f p3) {
+    private double crossProduct(Point2D p1, Point2D p2, Point2D p3) {
         return (p2.getX() - p1.getX()) * (p3.getY() - p1.getY()) - (p3.getX() - p1.getX()) * (p2.getY() - p1.getY());
     }
 
@@ -35,8 +34,8 @@ public class JarvisMarch implements ConvexHullFunction {
      * .@pre {Q.length > 1}
      */
     @Override
-    public Deque<Point2f> getConvexHull(Point2f[] Q) {
-        QuickSort.<Point2f>sort(Q, new XYComparator());
+    public Deque<Point2D> getConvexHull(Point2D[] Q) {
+        QuickSort.<Point2D>sort(Q, new XYComparator());
         int lowest = 0;
         int highest = Q.length - 1;
         int n = 0;
@@ -44,7 +43,7 @@ public class JarvisMarch implements ConvexHullFunction {
         boolean pass = true;
 
         // Palautettava pino.
-        Deque<Point2f> S = new ArrayDeque<Point2f>();
+        Deque<Point2D> S = new ArrayDeque<Point2D>();
         S.push(Q[0]);
 
         /**

@@ -1,5 +1,6 @@
 package org.jzy3d.convexhull.algorithms;
 
+import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -48,7 +49,7 @@ public class XYComparatorTest {
     public void testCompare() {
         System.out.println("Testing QuickSort with XYComparator");
 
-        Point2f[] taulu = getTestData(2);
+        Point2D[] taulu = getTestData(2);
 
         /*System.out.println("Before:");
          for (int ii = 0; ii < taulu.length; ii++) {
@@ -56,7 +57,7 @@ public class XYComparatorTest {
          }
          System.out.println();
          */
-        QuickSort.<Point2f>sort(taulu, new XYComparator());
+        QuickSort.<Point2D>sort(taulu, new XYComparator());
 
         System.out.println("After Quicksort:");
         int j = 1;
@@ -68,38 +69,38 @@ public class XYComparatorTest {
 
     }
 
-    private static Point2f[] getTestData(int n) {
+    private static Point2D[] getTestData(int n) {
 
-        Point2f[] taulu = null;
+        Point2D[] taulu = null;
 
         if (n == 0) {
-            taulu = new Point2f[5];
+            taulu = new Point2D[5];
             int i = 0;
-            taulu[i++] = new Point2f(3.0, 0.0);
-            taulu[i++] = new Point2f(2.0, 3.0);
-            taulu[i++] = new Point2f(2.0, 2.0);
-            taulu[i++] = new Point2f(2.0, 1.0);
-            taulu[i++] = new Point2f(1.0, 0.0);
+            taulu[i++] = new Point2D.Double(3.0, 0.0);
+            taulu[i++] = new Point2D.Double(2.0, 3.0);
+            taulu[i++] = new Point2D.Double(2.0, 2.0);
+            taulu[i++] = new Point2D.Double(2.0, 1.0);
+            taulu[i++] = new Point2D.Double(1.0, 0.0);
         }
 
         if (n == 1) {
-            taulu = new Point2f[8];
+            taulu = new Point2D[8];
             int i = 0;
-            taulu[i++] = new Point2f(-1.362, 2.226);
-            taulu[i++] = new Point2f(-0.19, 0.16);
-            taulu[i++] = new Point2f(-1.2, 1.794);
-            taulu[i++] = new Point2f(0.15, 0.3);
-            taulu[i++] = new Point2f(1, -1.53);
-            taulu[i++] = new Point2f(1.19, 0.05);
-            taulu[i++] = new Point2f(-1.524, 2.28);
-            taulu[i++] = new Point2f(-1.117, 3.449);
+            taulu[i++] = new Point2D.Double(-1.362, 2.226);
+            taulu[i++] = new Point2D.Double(-0.19, 0.16);
+            taulu[i++] = new Point2D.Double(-1.2, 1.794);
+            taulu[i++] = new Point2D.Double(0.15, 0.3);
+            taulu[i++] = new Point2D.Double(1, -1.53);
+            taulu[i++] = new Point2D.Double(1.19, 0.05);
+            taulu[i++] = new Point2D.Double(-1.524, 2.28);
+            taulu[i++] = new Point2D.Double(-1.117, 3.449);
         }
 
         if (n == 2) {
             try {
                 File file = fixtures.data2();
-                List<Point2f> lista = DataReader.readData(file);
-                taulu = new Point2f[lista.size()];
+                List<Point2D> lista = DataReader.readData(file);
+                taulu = new Point2D[lista.size()];
                 taulu = lista.toArray(taulu);
             } catch (IOException e) {
                 System.out.println("File error.");

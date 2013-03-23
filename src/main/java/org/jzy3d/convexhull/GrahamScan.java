@@ -1,8 +1,8 @@
 package org.jzy3d.convexhull;
 
+import java.awt.geom.Point2D;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.algorithms.RadialComparator;
 import org.jzy3d.convexhull.utils.QuickSort;
 
@@ -14,8 +14,8 @@ public class GrahamScan implements ConvexHullFunction {
     /**
      *
      */
-    private Point2f[] preSort(Point2f[] pts) {
-        Point2f t;
+    private Point2D[] preSort(Point2D[] pts) {
+        Point2D t;
 
         // find the lowest point in the set. If two or more points have
         // the same minimum y coordinate choose the one with the minimu x.
@@ -41,13 +41,13 @@ public class GrahamScan implements ConvexHullFunction {
      * @author Jukka Moisio
      */
     @Override
-    public Deque<Point2f> getConvexHull(Point2f[] pts) {
+    public Deque<Point2D> getConvexHull(Point2D[] pts) {
         preSort(pts);
-        Point2f p;
+        Point2D p;
         RadialComparator c = new RadialComparator(pts[0]);
 
         // palautettava pino
-        Deque<Point2f> s = new ArrayDeque<Point2f>();
+        Deque<Point2D> s = new ArrayDeque<Point2D>();
 
         s.push(pts[pts.length - 1]);
         s.push(pts[0]);
