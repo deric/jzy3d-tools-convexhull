@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 import javax.swing.JFileChooser;
 import org.jzy3d.convexhull.algorithms.Converter;
 import org.jzy3d.convexhull.algorithms.Point2f;
@@ -12,7 +13,6 @@ import org.jzy3d.convexhull.ConvexHullFunction;
 import org.jzy3d.convexhull.GrahamScan;
 import org.jzy3d.convexhull.JarvisMarch;
 import org.jzy3d.convexhull.io.DataReader;
-import org.jzy3d.convexhull.utils.Stack;
 
 /**
  * Luokka on sisäisesti C-kielimäinen: kokonaisuus riippuu yksityiskohdista ja

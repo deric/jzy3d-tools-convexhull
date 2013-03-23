@@ -1,5 +1,6 @@
 package org.jzy3d.convexhull.utils;
 
+import java.util.Stack;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -28,7 +29,7 @@ public class LinkedStackTest {
 
     @Before
     public void setUp() {
-        stack = new LinkedStack<Integer>();
+        stack = new Stack<Integer>();
 
         // ensimmäinen testi
         for (int i = 1; i <= 10; i++) {

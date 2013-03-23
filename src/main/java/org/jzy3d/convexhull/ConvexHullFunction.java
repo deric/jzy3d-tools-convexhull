@@ -1,7 +1,7 @@
 package org.jzy3d.convexhull;
 
+import java.util.Stack;
 import org.jzy3d.convexhull.algorithms.Point2f;
-import org.jzy3d.convexhull.utils.Stack;
 
 
 public interface ConvexHullFunction {
