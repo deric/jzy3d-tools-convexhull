@@ -2,8 +2,8 @@ package org.jzy3d.convexhull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -61,7 +61,7 @@ public class JarvisMarchTest {
         Point2f[] data = new Point2f[lista.size()];
         data = lista.toArray(data);
 
-        Stack<Point2f> pino = f.getConvexHull(data);
+        Deque<Point2f> pino = f.getConvexHull(data);
         assertEquals(6149, lista.size());
         System.out.println("\nListan koko: " + lista.size());
         assertEquals(13, pino.size());
@@ -93,14 +93,14 @@ public class JarvisMarchTest {
         data[i++] = new Point2f(-3, 2);
         data[i++] = new Point2f(-2, 4);
 
-        Stack<Point2f> pino = f.getConvexHull(data);
+        Deque<Point2f> pino = f.getConvexHull(data);
 
         System.out.println("\nList size: " + data.length);
          assertEquals(18, data.length);
         System.out.println("Peitteen koko: " + pino.size());
          assertEquals(9, pino.size());
         
-        while (!pino.empty()) {
+        while (!pino.isEmpty()) {
             System.out.println(pino.pop());
         }
         assertEquals(0, pino.size());

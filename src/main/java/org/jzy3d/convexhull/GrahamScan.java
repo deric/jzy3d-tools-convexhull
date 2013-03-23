@@ -1,6 +1,7 @@
 package org.jzy3d.convexhull;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.algorithms.RadialComparator;
 import org.jzy3d.convexhull.utils.QuickSort;
@@ -40,13 +41,13 @@ public class GrahamScan implements ConvexHullFunction {
      * @author Jukka Moisio
      */
     @Override
-    public Stack<Point2f> getConvexHull(Point2f[] pts) {
-        Point2f[] sorted = preSort(pts);
+    public Deque<Point2f> getConvexHull(Point2f[] pts) {
+        preSort(pts);
         Point2f p;
         RadialComparator c = new RadialComparator(pts[0]);
 
         // palautettava pino
-        Stack<Point2f> s = new Stack<Point2f>();
+        Deque<Point2f> s = new ArrayDeque<Point2f>();
 
         s.push(pts[pts.length - 1]);
         s.push(pts[0]);

@@ -2,8 +2,8 @@ package org.jzy3d.convexhull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -60,8 +60,8 @@ public class GrahamScanTest {
             Point2f[] data = new Point2f[lista.size()];
             data = lista.toArray(data);
 
-            Stack<Point2f> pino = f.getConvexHull(data);
-            Stack<Point2f> pino2 = f2.getConvexHull(data);
+            Deque<Point2f> pino = f.getConvexHull(data);
+            Deque<Point2f> pino2 = f2.getConvexHull(data);
 
             System.out.println("Size: " + pino.size());
             //assertEquals(170, pino.size());

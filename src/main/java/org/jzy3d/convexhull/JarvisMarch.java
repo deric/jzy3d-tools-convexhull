@@ -1,5 +1,7 @@
 package org.jzy3d.convexhull;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 import org.jzy3d.convexhull.algorithms.Point2f;
 import org.jzy3d.convexhull.algorithms.XYComparator;
@@ -33,16 +35,16 @@ public class JarvisMarch implements ConvexHullFunction {
      * .@pre {Q.length > 1}
      */
     @Override
-    public Stack<Point2f> getConvexHull(Point2f[] Q) {
+    public Deque<Point2f> getConvexHull(Point2f[] Q) {
         QuickSort.<Point2f>sort(Q, new XYComparator());
         int lowest = 0;
         int highest = Q.length - 1;
         int n = 0;
-        Stack<Integer> collinear = new Stack<Integer>();
+        Deque<Integer> collinear = new ArrayDeque<Integer>();
         boolean pass = true;
 
         // Palautettava pino.
-        Stack<Point2f> S = new Stack<Point2f>();
+        Deque<Point2f> S = new ArrayDeque<Point2f>();
         S.push(Q[0]);
 
         /**
@@ -68,14 +70,14 @@ public class JarvisMarch implements ConvexHullFunction {
 
                 // Kollienaarisista pisteistä otetaan viimeiseksi lisätty,
                 // koska se on kauimmainen
-                if (!collinear.empty()) {
+                if (!collinear.isEmpty()) {
                     n = collinear.pop();
                 }
 
                 S.push(Q[n]);
             } // if
             // alustetaan tarkistus
-            while (!collinear.empty()) {
+            while (!collinear.isEmpty()) {
                 collinear.pop();
             }
             pass = true;
@@ -108,14 +110,14 @@ public class JarvisMarch implements ConvexHullFunction {
 
                 // Kollienaarisista pisteistä otetaan viimeiseksi lisätty,
                 // koska se on kauimmainen
-                if (!collinear.empty()) {
+                if (!collinear.isEmpty()) {
                     n = collinear.pop();
                 }
 
                 S.push(Q[n]);
             } // if
             // alustetaan tarkistus
-            while (!collinear.empty()) {
+            while (!collinear.isEmpty()) {
                 collinear.pop();
             }
             pass = true;

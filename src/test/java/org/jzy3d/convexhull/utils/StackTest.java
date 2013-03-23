@@ -1,6 +1,7 @@
 package org.jzy3d.convexhull.utils;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,11 +13,11 @@ import static org.junit.Assert.*;
  *
  * @author deric
  */
-public class LinkedStackTest {
+public class StackTest {
 
-    private Stack<Integer> stack;
+    private Deque<Integer> stack;
 
-    public LinkedStackTest() {
+    public StackTest() {
     }
 
     @BeforeClass
@@ -29,7 +30,7 @@ public class LinkedStackTest {
 
     @Before
     public void setUp() {
-        stack = new Stack<Integer>();
+        stack = new ArrayDeque<Integer>();
 
         // ensimmäinen testi
         for (int i = 1; i <= 10; i++) {
@@ -52,7 +53,7 @@ public class LinkedStackTest {
         }
         int i = 20;
         System.out.println("size "+stack.size());
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             assertEquals(i, stack.size());
             int ret = stack.pop();
             assertEquals(i, ret);

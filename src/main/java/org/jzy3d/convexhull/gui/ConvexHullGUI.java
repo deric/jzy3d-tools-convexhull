@@ -3,6 +3,7 @@ package org.jzy3d.convexhull.gui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.io.File;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
@@ -415,7 +416,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
 
         System.out.println("Input size: " + table.length);
         long start = System.currentTimeMillis();
-        Stack<Point2f> pino = f.getConvexHull(table);
+        Deque<Point2f> pino = f.getConvexHull(table);
         long end = System.currentTimeMillis();
         System.out.println("Operation time (ms): " + (end - start));
         System.out.println("Output size: " + pino.size());
@@ -435,7 +436,7 @@ public class ConvexHullGUI extends javax.swing.JFrame {
         }
 
         // Piirrä pisteet ja mahdollisesti viivat.
-        while (!pino.empty()) {
+        while (!pino.isEmpty()) {
             Point2f next = c.from(pino.pop());
             g.drawOval((int) prev.getX() - 4, (int) prev.getY() - 4, 8, 8);
             if (lines) {
