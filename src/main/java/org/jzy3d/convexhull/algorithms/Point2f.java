@@ -5,34 +5,36 @@ package org.jzy3d.convexhull.algorithms;
  * @author Teemu
  */
 public class Point2f {
-    
-    /** */
-    private float x;
-    
-    /** */
-    private float y;
-    
+
     /**
-     * 
+     *      */
+    private float x;
+    /**
+     *      */
+    private float y;
+
+    /**
+     *
      */
-    public Point2f(double x, double y) {   
-	this.x = (float)x;
-	this.y = (float)y;
+    public Point2f(double x, double y) {
+        this.x = (float) x;
+        this.y = (float) y;
     }
 
-    public Point2f() {   
+    public Point2f() {
     }
-    
+
     public float getX() {
         return x;
     }
-    
+
     public float getY() {
         return y;
     }
 
     /**
      * Aseta koordinaatti x
+     *
      * @param nx uusi x-koordinaatti
      * @pre {true}
      * @post { nx == getX() }
@@ -40,9 +42,10 @@ public class Point2f {
     public void setX(float nx) {
         this.x = nx;
     }
-    
+
     /**
      * Aseta koordinaatti y
+     *
      * @param ny uusi y-koordinaatti
      * @pre {true}
      * @post { ny == getY() }
@@ -51,7 +54,7 @@ public class Point2f {
         this.y = ny;
     }
 
-    	public String toString() {
-		return "(" + x + "," + y + ")";
-	}
+    public String toString() {
+        return "(" + x + "," + y + ")";
+    }
 }

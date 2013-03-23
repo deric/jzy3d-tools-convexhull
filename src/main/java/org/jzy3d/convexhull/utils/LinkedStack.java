@@ -6,17 +6,16 @@ package org.jzy3d.convexhull.utils;
  */
 public class LinkedStack<T> implements Stack<T> {
 
-	private int size;
+    private int size;
 
-	public LinkedStack() {
-		size = 0;
-	}
-
+    public LinkedStack() {
+        size = 0;
+    }
     private Node<T> top;
-    
+
     public void push(T s) {
-		top = new Node<T>(s, top);
-		size = size + 1;
+        top = new Node<T>(s, top);
+        size += 1;
     }
 
     public boolean empty() {
@@ -25,31 +24,32 @@ public class LinkedStack<T> implements Stack<T> {
 
     /**
      * Palauttaa ja poistaa viitauksen pinon päällimäiseen.
+     *
      * .@pre { !empty() }
-     * .@post { Jos push(s) ja push(t), niin
-     *        peek() = t, pop() = t ja peek() = s }
+     * .@post { Jos push(s) ja push(t), niin peek() = t, pop() = t ja peek() = s
+     * }
      */
     public T pop() {
         if (top == null) {
-            throw new UnsupportedOperationException("Not supported yet.");        
+            throw new UnsupportedOperationException("Not supported yet.");
         } else {
             T ret = top.get();
             top = top.next();
-		size = size - 1;
-            return ret;            
+            size -= 1;
+            return ret;
         }
     }
-    
+
     /**
      * Palauttaa viitauksen pinon päällimäiseen.
+     *
      * .@pre { !empty() }
      */
     public T peek() {
         return top.get();
     }
 
-	public int size() {
-		return this.size;
-	}
+    public int size() {
+        return this.size;
+    }
 }
-

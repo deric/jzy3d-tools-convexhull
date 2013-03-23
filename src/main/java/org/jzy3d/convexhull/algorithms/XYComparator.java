@@ -2,51 +2,54 @@ package org.jzy3d.convexhull.algorithms;
 
 import org.jzy3d.convexhull.utils.IComparator;
 
-
-
 public class XYComparator implements IComparator<Point2f> {
 
-	private double epsilon;
+    private double epsilon;
 
-	public XYComparator() {
-		this(0.000001);
-	}
+    public XYComparator() {
+        this(0.000001);
+    }
 
-	public XYComparator(double epsilon) {
-		this.epsilon = epsilon;
-	}
+    public XYComparator(double epsilon) {
+        this.epsilon = epsilon;
+    }
 
-	/**
-       *
-	 */
-	public int compare(Point2f a, Point2f b){
+    /**
+     *
+     */
+    @Override
+    public int compare(Point2f a, Point2f b) {
 
-		assert a != null;
-		assert b != null;
-		
-		int result = compareDouble( a.getY(), b.getY(), this.epsilon );
+        assert a != null;
+        assert b != null;
 
-		if( result == 0 )
-			result = compareDouble( a.getX(), b.getX(), this.epsilon );
+        int result = compareDouble(a.getY(), b.getY(), this.epsilon);
 
-		return result;
-	}
+        if (result == 0) {
+            result = compareDouble(a.getX(), b.getX(), this.epsilon);
+        }
 
-	/*
-	 * @.pre {true}
-	 * @.post {Jos a < b, RESULT < 0
-	 *        jos a = b, RESULT == 0
-	 *        jos a > b, RESULT > 0}
-	 */	
-	private int compareDouble(double a, double b, double eps) {
-		double diff = a - b;
-		if( -eps < diff && diff < eps )
-			return 0;
-		if(a < b)
-			return -1;
-		if(a > b)
-			return 1;
+        return result;
+    }
 
-		throw new AssertionError("It should be impossible to reach here.");
-	}
+    /*
+     * @.pre {true}
+     * @.post {Jos a < b, RESULT < 0
+     *        jos a = b, RESULT == 0
+     *        jos a > b, RESULT > 0}
+     */
+    private int compareDouble(double a, double b, double eps) {
+        double diff = a - b;
+        if (-eps < diff && diff < eps) {
+            return 0;
+        }
+        if (a < b) {
+            return -1;
+        }
+        if (a > b) {
+            return 1;
+        }
+
+        throw new AssertionError("It should be impossible to reach here.");
+    }
 }
